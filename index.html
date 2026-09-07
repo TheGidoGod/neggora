@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nexora Labs — AI. Cloud. Apps.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Nexora Labs</a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="why.html">Why Nexora</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-controls">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+        <button id="menuToggle" class="icon-btn mobile-only" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Build faster with AI-powered products and cloud engineering</h1>
+          <p>We design modern apps, automation, and data platforms that scale. Trusted by startups and enterprises.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn primary">Get in touch</a>
+            <a href="#services" class="btn ghost">Our Services</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 600 400" class="art-svg">
+            <defs>
+                <clipPath id="rounded">
+                <rect x="0" y="0" width="600" height="400" rx="28"/>
+                </clipPath>
+            </defs>
+
+            <image
+                href="https://media.istockphoto.com/id/2207141986/photo/ai-governance-and-responsive-generative-artificial-intelligence-use-compliance-strategy-and.jpg?s=2048x2048&w=is&k=20&c=4N4yTqnpya162cxoiM-u9-e-8QYSohvq8IU4RgKAtVo="
+                x="0"
+                y="0"
+                width="600"
+                height="400"
+                preserveAspectRatio="xMidYMid slice"
+                clip-path="url(#rounded)"
+            />
+            </svg>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Nexora Labs</h2>
+        <p class="lead">Nexora Labs helps businesses harness AI, automation, and cloud-native engineering to deliver world-class digital experiences and analytics.</p>
+        <div class="grid cards">
+          <div class="card">Founded by engineers with enterprise experience</div>
+          <div class="card">Remote-first teams and flexible engagements</div>
+          <div class="card">Focus on measurable business outcomes</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section alt">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="grid services-grid">
+          <article class="service card">
+            <h3>AI & Machine Learning</h3>
+            <p>Custom models, MLOps, and predictive analytics that integrate with existing systems.</p>
+          </article>
+          <article class="service card">
+            <h3>Automation & Workflows</h3>
+            <p>End-to-end automation for ops, sales, and customer workflows to reduce manual toil.</p>
+          </article>
+          <article class="service card">
+            <h3>Web & Mobile Apps</h3>
+            <p>Design and build performant web and native mobile apps with modern UX.</p>
+          </article>
+          <article class="service card">
+            <h3>Cloud & DevOps</h3>
+            <p>Cloud architecture, infrastructure as code, and secure deployment pipelines.</p>
+          </article>
+          <article class="service card">
+            <h3>Data & Analytics</h3>
+            <p>Data platforms, ETL, visualization, and metrics to drive decisions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Selected Projects</h2>
+        <div class="filters" role="group" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+          <button class="filter-btn" data-filter="cloud">Cloud</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <div class="grid projects-grid" id="projectsGrid">
+          <div class="project card" data-cat="ai web">
+            <h3>AI Customer Insights</h3>
+            <p>Real-time segmentation and recommendations for e-commerce teams.</p>
+          </div>
+          <div class="project card" data-cat="cloud">
+            <h3>Secure Cloud Platform</h3>
+            <p>Multi-tenant data platform with automated backups and monitoring.</p>
+          </div>
+          <div class="project card" data-cat="mobile">
+            <h3>Field Ops Mobile App</h3>
+            <p>Offline-first mobile app for distributed field technicians.</p>
+          </div>
+          <div class="project card" data-cat="web">
+            <h3>Analytics Dashboard</h3>
+            <p>Interactive visualizations and custom reports.</p>
+          </div>
+          <div class="project card" data-cat="ai cloud">
+            <h3>Predictive Maintenance</h3>
+            <p>Sensor ingest, anomaly detection, and automated alerts.</p>
+          </div>
+        </div>
+        <div class="more-link" style="margin-top:18px">
+          <a class="btn ghost" href="projects.html">See all projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section alt">
+      <div class="container">
+        <h2>Why Nexora</h2>
+        <div class="grid cards">
+          <div class="card">Proven delivery with iterative sprints</div>
+          <div class="card">Security and compliance best practices</div>
+          <div class="card">Cross-functional teams focused on ROI</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials-home" class="section">
+      <div class="container">
+        <h2>What our clients say</h2>
+        <div class="grid projects-grid">
+          <div class="card testi-card">
+            <p>“Nexora transformed our analytics stack — incredible speed and clarity.”</p>
+            <cite>— Maya K., Growth Lead</cite>
+          </div>
+          <div class="card testi-card">
+            <p>“The team shipped production-ready features in weeks, not months.”</p>
+            <cite>— Alex R., CTO</cite>
+          </div>
+          <div class="card testi-card">
+            <p>“Their cloud architecture cut our costs by 32% while improving reliability.”</p>
+            <cite>— Priya S., Head of Engineering</cite>
+          </div>
+          <div class="card testi-card">
+            <p>“The mobile update they delivered doubled our DAU — fantastic work.”</p>
+            <cite>— Tom H., Product Lead</cite>
+          </div>
+          <div class="card testi-card">
+            <p>“They built a recommendation engine that meaningfully increased conversion rates.”</p>
+            <cite>— Lina M., E‑commerce Director</cite>
+          </div>
+        </div>
+        <div style="margin-top:18px">
+          <a class="btn ghost" href="testimonials.html">See all testimonials</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© Nexora Labs — 2026. All rights reserved.</small>
+      <nav class="foot-nav">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

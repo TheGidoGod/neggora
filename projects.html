@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Nexora Labs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Nexora Labs</a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="why.html">Why Nexora</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-controls">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+        <button id="menuToggle" class="icon-btn mobile-only" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2>Selected Projects</h2>
+        <div class="filters" role="group" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+          <button class="filter-btn" data-filter="cloud">Cloud</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <div class="grid projects-grid" id="projectsGrid">
+          <!-- 30 sample projects -->
+          <!-- Categories rotate: ai, cloud, mobile, web -->
+          
+          <!-- Generate projects 1..30 -->
+          <div class="project card" data-cat="ai">
+            <h3>AI Customer Insights</h3>
+            <p>Real-time segmentation and recommendations for e-commerce teams.</p>
+          </div>
+          <div class="project card" data-cat="cloud">
+            <h3>Secure Cloud Platform</h3>
+            <p>Multi-tenant data platform with automated backups and monitoring.</p>
+          </div>
+          <div class="project card" data-cat="mobile">
+            <h3>Field Ops Mobile App</h3>
+            <p>Offline-first mobile app for distributed field technicians.</p>
+          </div>
+          <div class="project card" data-cat="web">
+            <h3>Analytics Dashboard</h3>
+            <p>Interactive visualizations and custom reports.</p>
+          </div>
+          <div class="project card" data-cat="ai cloud">
+            <h3>Predictive Maintenance</h3>
+            <p>Sensor ingest, anomaly detection, and automated alerts.</p>
+          </div>
+          <div class="project card" data-cat="ai">
+            <h3>Conversation AI</h3>
+            <p>Customer support assistant with sentiment-aware routing.</p>
+          </div>
+          <div class="project card" data-cat="cloud">
+            <h3>Serverless Data Lake</h3>
+            <p>Cost-efficient storage and query layer for analytics.</p>
+          </div>
+          <div class="project card" data-cat="mobile">
+            <h3>Onboarding Mobile UX</h3>
+            <p>Gamified onboarding flow to boost activation metrics.</p>
+          </div>
+          <div class="project card" data-cat="web">
+            <h3>Marketing Microsite</h3>
+            <p>High-converting landing with A/B testing and analytics.</p>
+          </div>
+          <div class="project card" data-cat="ai cloud">
+            <h3>Auto-scaling ML Platform</h3>
+            <p>Model training and serving with autoscaling and monitoring.</p>
+          </div>
+          <div class="project card" data-cat="ai">
+            <h3>Recommendation Engine</h3>
+            <p>Personalized recommendations improving conversions.</p>
+          </div>
+          <div class="project card" data-cat="cloud">
+            <h3>Multi-region Backbone</h3>
+            <p>Low-latency global infrastructure for critical services.</p>
+          </div>
+          <div class="project card" data-cat="mobile">
+            <h3>Offline Sync Library</h3>
+            <p>Reliable data sync for intermittent networks and offline use.</p>
+          </div>
+          <div class="project card" data-cat="web">
+            <h3>Interactive Reporting</h3>
+            <p>Custom charts and export features for enterprise users.</p>
+          </div>
+          <div class="project card" data-cat="ai cloud">
+            <h3>Anomaly Detection Platform</h3>
+            <p>Real-time monitoring and alerting for critical systems.</p>
+          </div>
+          <div class="project card" data-cat="ai">
+            <h3>Vision Inspection</h3>
+            <p>Automated defect detection with computer vision.</p>
+          </div>
+          <div class="project card" data-cat="cloud">
+            <h3>Cost Optimization Suite</h3>
+            <p>Automated rightsizing and savings recommendations.</p>
+          </div>
+          <div class="project card" data-cat="mobile">
+            <h3>Customer Feedback App</h3>
+            <p>In-app feedback capture with sentiment analysis.</p>
+          </div>
+          <div class="project card" data-cat="web">
+            <h3>Headless Commerce</h3>
+            <p>Fast storefronts built on composable APIs.</p>
+          </div>
+          <div class="project card" data-cat="ai cloud">
+            <h3>Edge Inference</h3>
+            <p>Low-latency models deployed to edge devices.</p>
+          </div>
+          <div class="project card" data-cat="ai">
+            <h3>Voice Analytics</h3>
+            <p>Call transcription and insight extraction for contact centers.</p>
+          </div>
+          <div class="project card" data-cat="cloud">
+            <h3>Identity & Access</h3>
+            <p>Secure IAM implementation with SSO and least-privilege.</p>
+          </div>
+          <div class="project card" data-cat="mobile">
+            <h3>Field Data Capture</h3>
+            <p>Rich media capture with automatic OCR tagging.</p>
+          </div>
+          <div class="project card" data-cat="web">
+            <h3>Client Portal</h3>
+            <p>Secure client dashboards and document sharing.</p>
+          </div>
+          <div class="project card" data-cat="ai cloud">
+            <h3>Batch Scoring Pipeline</h3>
+            <p>High-throughput model scoring for nightly jobs.</p>
+          </div>
+          <div class="project card" data-cat="ai">
+            <h3>Fraud Detection</h3>
+            <p>Real-time scoring and rules-based workflows for fraud prevention.</p>
+          </div>
+          <div class="project card" data-cat="cloud">
+            <h3>Data Residency Platform</h3>
+            <p>Compliant data storage and access controls per region.</p>
+          </div>
+          <div class="project card" data-cat="mobile">
+            <h3>Push Engagement Engine</h3>
+            <p>Personalized push campaigns with rich content.</p>
+          </div>
+          <div class="project card" data-cat="web">
+            <h3>Performance Redesign</h3>
+            <p>Site speed and Core Web Vitals improvement program.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© Nexora Labs — 2026. All rights reserved.</small>
+      <nav class="foot-nav">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

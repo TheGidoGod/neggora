@@ -1,0 +1,197 @@
+:root{
+  --bg:#0f1724;
+  --surface:#0b1220;
+  --muted:#9aa4b2;
+  --fg:#e6eef8;
+  --primary:#6C5CE7;
+  --accent:#00D4FF;
+  --card:#0f1a2b;
+  --glass: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.04);
+  --radius:12px;
+  --maxw:1100px;
+  --gap:24px;
+  color-scheme: dark;
+}
+:root.light{
+  --bg:#f6f8fb;
+  --surface:#ffffff;
+  --muted:#6b7280;
+  --fg:#0f1724;
+  --primary:#4f46e5;
+  --accent:#06b6d4;
+  --card:#ffffff;
+  --glass: rgba(0,0,0,0.03);
+  --border: rgba(15,23,36,0.06);
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+ body{
+  margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background: var(--bg);
+  color: var(--fg); -webkit-font-smoothing:antialiased;
+ }
+.container{max-width:var(--maxw);margin:0 auto;padding:28px 20px}
+.header-inner{display:flex;align-items:center;gap:12px;padding:8px 0}
+.brand{font-weight:800;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.05rem;text-decoration: none;}
+.site-header{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(6,8,12,0.6),transparent);border-bottom:1px solid var(--border)}
+.site-header .container{padding-top:0;padding-bottom:0}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{color:var(--fg);text-decoration:none;font-weight:600;opacity:0.9}
+.nav a:hover{opacity:1;color:var(--fg);transform:translateY(-1px)}
+.nav .close-btn{display:none}
+.header-controls{margin-left:auto;display:flex;gap:8px;align-items:center}
+.icon-btn{background:transparent;border:0;color:var(--muted);font-size:1.1rem;padding:8px;border-radius:8px;cursor:pointer}
+.mobile-only{display:none}
+
+.hero{padding:16px 0 48px;min-height:320px}
+.hero .container{padding-top:0}
+.hero-grid{display:grid;grid-template-columns:1fr 460px;gap:36px;align-items:center}
+.hero-copy h1{font-size:2.4rem;line-height:1.03;margin:0 0 14px;letter-spacing:-0.02em}
+.lead{color:var(--muted);max-width:60ch;text-align: center;}
+.hero-art{display:flex;justify-content:center;align-items:center}
+.hero-art .art-svg{width:100%;max-width:420px;height:260px;border-radius:18px;box-shadow:0 30px 80px rgba(2,6,23,0.6);transform:translateY(0);animation:float 6s ease-in-out infinite;z-index:0}
+.hero-art{z-index:0}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:white;box-shadow:0 8px 30px rgba(108,92,231,0.12)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+/* Button and focus polish */
+.btn:hover{transform:translateY(-2px);transition:transform .18s ease}
+a{transition:color .18s ease}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid rgba(100,116,255,0.12);outline-offset:3px;border-radius:8px}
+
+/* Reveal animation */
+.reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.2,1)}
+.card{opacity:1;transform:none}
+.hero-copy{opacity:1;transform:none;position:relative;z-index:2}
+
+/* Toast / success */
+.toast{position:fixed;right:20px;bottom:20px;background:linear-gradient(90deg,var(--primary),var(--accent));color:white;padding:12px 16px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6);z-index:80;display:flex;gap:8px;align-items:center}
+.toast button{background:transparent;border:0;color:inherit;cursor:pointer;font-weight:700}
+
+/* Form error message */
+.field-error{color:#ffb4b4;font-size:0.95rem;margin-top:6px}
+
+
+.section{padding:0 0}
+.section.alt{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+.grid{display:grid;gap:var(--gap)}
+.cards{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));padding:18px;border-radius:var(--radius);box-shadow:0 18px 60px rgba(2,6,23,0.6);border:1px solid var(--border);backdrop-filter: blur(4px);-webkit-backdrop-filter: blur(4px);color: var(--fg)}
+.card *{color:inherit}
+.services-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.service h3{margin-top:0}
+
+.filters{display:flex;gap:8px;margin:18px 0 24px}
+.filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:999px;color:var(--muted);cursor:pointer}
+.filter-btn.active{background:linear-gradient(90deg,var(--primary),var(--accent));color:white;border:0}
+.projects-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start}
+.project{transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .18s,opacity .28s}
+.project:hover{transform:translateY(-8px);box-shadow:0 18px 60px rgba(2,6,23,0.6)}
+.project.hide{opacity:0;transform:translateY(12px);pointer-events:none;height:0;padding:0;margin:0}
+
+.testimonials{position:relative;min-height:140px}
+.testi{display:none;padding:22px;border-left:4px solid var(--primary);background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);border-radius:10px}
+.testi.active{display:block}
+ /* List view default spacing */
+ .testimonials.list .testi{display:block;margin-bottom:14px}
+
+/* Testimonials view toggle styles */
+.test-controls{display:flex;align-items:center;gap:8px}
+.toggle-view-btn{background:transparent;border:1px solid var(--border);padding:8px;border-radius:8px;color:var(--muted);cursor:pointer;display:inline-grid;place-items:center;width:40px;height:40px}
+.toggle-view-btn svg{color:var(--muted);width:18px;height:18px}
+.toggle-view-btn.active{background:linear-gradient(90deg,var(--primary),var(--accent));color:white;border:0}
+.toggle-view-btn.active svg{color:white}
+
+/* Grid view for testimonials */
+.testimonials.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.testimonials.grid .testi{display:block;border-left:0;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+
+/* List view (default) */
+.testimonials.list{display:block}
+.testimonials.list .testi{display:block;border-left:4px solid var(--primary);background:transparent;padding:18px;border-radius:0}
+
+/* Avatar and testimonial layout */
+.testi{display:flex;align-items:flex-start;gap:12px}
+.testi .testi-body{flex:1}
+.testi-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 56px;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.testimonials.grid .testi-avatar{width:64px;height:64px;flex:0 0 64px}
+.testimonials.list .testi-avatar{width:48px;height:48px;flex:0 0 48px}
+
+/* Slight spacing tweaks for grid cards */
+.testimonials.grid .testi p{margin-bottom:8px}
+.testimonials.grid .testi cite{display:block;color:var(--muted);font-size:0.92rem;margin-top:6px}
+
+/* Homepage testimonial card avatars */
+.testi-card{display:flex;align-items:flex-start;gap:12px}
+.testi-card .testi-avatar{width:72px;height:72px;flex:0 0 72px;border-radius:10px}
+.testi-card .testi-body{flex:1}
+.testi-card.has-avatar{padding:16px}
+.testi-card p{margin-bottom:8px}
+.testi-card cite{display:block;color:var(--muted);margin-top:6px}
+.testi p{font-size:1.05rem;line-height:1.6;margin:0}
+.testi cite{display:block;margin-top:8px;color:var(--muted);font-weight:600}
+
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:32px}
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:32px}
+form label{display:block;margin-bottom:12px}
+input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:transparent;color:inherit}
+.site-footer{border-top:1px solid var(--border);padding:28px 0;background:transparent}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.form-actions{margin-top:12px}
+.form-msg{margin-top:12px;color:var(--accent)}
+
+.site-footer{border-top:1px solid var(--border);padding:20px 0;background:transparent}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .header-controls{gap:6px}
+  /* Mobile: full-screen overlay nav */
+  .nav{position:fixed;inset:0;left:0;right:0;top:0;background:var(--surface);display:none;flex-direction:column;align-items:center;padding-top:84px;transform:translateY(-100%);transition:transform .28s ease;z-index:9999}
+  .nav.open{transform:translateY(0);display: flex;overscroll-behavior-y: contain;}
+  .mobile-only{display:inline-flex}
+  /* Prevent page scroll when nav open */
+  body.nav-open{overflow:hidden;height:100%}
+  /* Larger, centered nav links for mobile */
+  .nav a{display:block;padding:12px 0;font-size:1.1rem}
+  /* Backdrop behind the nav overlay */
+  .nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:9998;opacity:0;pointer-events:none;transition:opacity .18s}
+  .nav-backdrop.active{opacity:1;pointer-events:auto}
+  /* hide header chrome (brand + controls) while nav overlay is open, but keep nav visible */
+  body.nav-open .site-header .brand,
+  body.nav-open .site-header .header-controls{opacity:0;pointer-events:none}
+  /* hide the header's inline nav while overlay is open to avoid duplicate links */
+  body.nav-open .site-header .nav{display:none}
+  /* Close button inside the nav */
+  .nav .close-btn{display:block;position:absolute;right:14px;top:12px;background:transparent;border:0;color:var(--fg);font-size:1.2rem;padding:8px;border-radius:8px;cursor:pointer;z-index:10001}
+}
+
+@media(min-width:1200px){
+  .hero-copy h1{font-size:2.6rem}
+}
+
+/* Utility */
+.hidden{display:none}
+
+/* Two-column layout for the Why page */
+.page-why .lead{column-count:2;column-gap:32px;column-rule:1px solid var(--border);max-width:none;text-align:left}
+.page-why .lead h3,.page-why .lead h4{break-inside:avoid-column;column-span:all;-webkit-column-span:all;margin-top:0}
+.page-why .lead ul{column-span:all;-webkit-column-span:all}
+@media(max-width:900px){
+  .page-why .lead{column-count:1}
+}
+
+/* Two-column layout for the About page */
+.page-about .lead{column-count:2;column-gap:32px;column-rule:1px solid var(--border);max-width:none;text-align:left}
+.page-about .lead h3,.page-about .lead h4{break-inside:avoid-column;column-span:all;-webkit-column-span:all;margin-top:0}
+.page-about .lead ul{column-span:all;-webkit-column-span:all}
+@media(max-width:900px){
+  .page-about .lead{column-count:1}
+}
+
+@keyframes float{ 0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)} }
+
