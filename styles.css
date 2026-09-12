@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 :root{
   --bg:#0f1724;
   --surface:#0b1220;
@@ -33,7 +33,7 @@
 html,body{height:100%}
 html{scroll-behavior:smooth}
  body{
-  margin:0;font-family:"Roboto Mono";
+  margin:0;font-family:"Black Ops One";
   background: linear-gradient(135deg, #0a1020 0%, #101a2d 28%, #111827 52%, #0d1729 100%);
   color: var(--fg); -webkit-font-smoothing:antialiased;
   position:relative; overflow-x:hidden;
