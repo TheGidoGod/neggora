@@ -41,24 +41,18 @@
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
-            <svg viewBox="0 0 600 400" class="art-svg">
-            <defs>
-                <clipPath id="rounded">
-                <rect x="0" y="0" width="600" height="400" rx="28"/>
-                </clipPath>
-            </defs>
-
-            <image
-                href="https://media.istockphoto.com/id/2207141986/photo/ai-governance-and-responsive-generative-artificial-intelligence-use-compliance-strategy-and.jpg?s=2048x2048&w=is&k=20&c=4N4yTqnpya162cxoiM-u9-e-8QYSohvq8IU4RgKAtVo="
-                x="0"
-                y="0"
-                width="600"
-                height="400"
-                preserveAspectRatio="xMidYMid slice"
-                clip-path="url(#rounded)"
-            />
-            </svg>
-      </div>
+          <div class="hero-model">
+            <div class="model-glow"></div>
+            <div class="model-orbit orbit-one"></div>
+            <div class="model-orbit orbit-two"></div>
+            <div class="model-core">
+              <div class="core-panel"></div>
+              <div class="core-cube cube-a"></div>
+              <div class="core-cube cube-b"></div>
+              <div class="core-cube cube-c"></div>
+            </div>
+          </div>
+        </div>
     </section>
 
     <section id="about" class="section">
@@ -193,6 +187,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>

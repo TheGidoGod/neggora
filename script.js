@@ -35,11 +35,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 
-  // Mobile nav (link-close behavior; toggle handled by openNav/closeNav helpers)
+  // Mobile nav (keep the nav in its original position and toggle the overlay state without moving the DOM node)
   function openNav(){
     if(!nav) return;
-    // move to body so overlay is not clipped
-    try{ if(nav.parentNode !== document.body) document.body.appendChild(nav) }catch(e){}
     nav.classList.add('open');
     try{ document.body.classList.add('nav-open') }catch(e){}
     try{ const b = document.querySelector('.nav-backdrop'); if(b) b.classList.add('active') }catch(e){}
@@ -51,8 +49,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     try{ document.body.classList.remove('nav-open') }catch(e){}
     try{ const b = document.querySelector('.nav-backdrop'); if(b) b.classList.remove('active') }catch(e){}
     if(menuToggle) menuToggle.setAttribute('aria-expanded','false');
-    // restore nav to original place
-    try{ if(navOriginalParent && nav.parentNode === document.body) navOriginalParent.insertBefore(nav, navOriginalNext) }catch(e){}
   }
   document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click', ()=>{ closeNav(); }));
 
@@ -115,11 +111,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
   } catch(e){ console.warn('Could not inject testimonial avatars', e) }
   if(testiItems.length>0){
     let ti = 0;
-    setInterval(()=>{
-      testiItems[ti].classList.remove('active');
-      ti = (ti+1)%testiItems.length;
-      testiItems[ti].classList.add('active');
-    },4000);
+    const updateActiveTestimonial = () => {
+      testiItems.forEach((item, index) => {
+        item.classList.toggle('active', index === ti);
+      });
+      ti = (ti + 1) % testiItems.length;
+    };
+
+    updateActiveTestimonial();
+    setInterval(updateActiveTestimonial, 4000);
   }
 
   // Create backdrop and close button for mobile nav overlay
@@ -218,6 +218,112 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('reveal') });
   },{threshold:0.12});
+
+  // Interactive 3D hero model
+  const heroModel = document.querySelector('.hero-model');
+  if (heroModel && window.THREE) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 1000);
+    camera.position.set(0, 0.4, 5.2);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+    heroModel.appendChild(renderer.domElement);
+
+    const ambient = new THREE.AmbientLight(0xffffff, 1.3);
+    scene.add(ambient);
+
+    const dirLight = new THREE.DirectionalLight(0x7dd3fc, 1.6);
+    dirLight.position.set(3, 4, 4);
+    scene.add(dirLight);
+
+    const accentLight = new THREE.PointLight(0x8b5cf6, 1.8, 10);
+    accentLight.position.set(-3, -2, 2);
+    scene.add(accentLight);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const geometry = new THREE.IcosahedronGeometry(1.2, 1);
+    const material = new THREE.MeshPhysicalMaterial({
+      color: 0x7c3aed,
+      emissive: 0x1d4ed8,
+      roughness: 0.2,
+      metalness: 0.7,
+      transmission: 0.15,
+      transparent: true,
+      opacity: 0.93,
+      clearcoat: 1,
+      clearcoatRoughness: 0.2
+    });
+    const core = new THREE.Mesh(geometry, material);
+    group.add(core);
+
+    const wire = new THREE.Mesh(
+      new THREE.TorusKnotGeometry(1.7, 0.18, 160, 28),
+      new THREE.MeshStandardMaterial({
+        color: 0x67e8f9,
+        emissive: 0x0ea5e9,
+        roughness: 0.25,
+        metalness: 0.9,
+        transparent: true,
+        opacity: 0.75
+      })
+    );
+    wire.rotation.x = Math.PI / 2.5;
+    wire.rotation.y = Math.PI / 4;
+    group.add(wire);
+
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(2.15, 0.04, 20, 120),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.38 })
+    );
+    ring.rotation.x = Math.PI / 2.3;
+    ring.rotation.y = Math.PI / 7;
+    group.add(ring);
+
+    const orbitDots = new THREE.Group();
+    for (let i = 0; i < 10; i++) {
+      const dot = new THREE.Mesh(
+        new THREE.SphereGeometry(0.08, 18, 18),
+        new THREE.MeshStandardMaterial({ color: i % 2 === 0 ? 0x67e8f9 : 0xa78bfa, emissive: i % 2 === 0 ? 0x0ea5e9 : 0x7c3aed })
+      );
+      const angle = (i / 10) * Math.PI * 2;
+      dot.position.set(Math.cos(angle) * 2.15, Math.sin(angle * 1.6) * 0.9, Math.sin(angle) * 1.5);
+      orbitDots.add(dot);
+    }
+    group.add(orbitDots);
+
+    group.rotation.x = 0.45;
+    group.rotation.y = -0.7;
+
+    const resizeRenderer = () => {
+      const size = heroModel.clientWidth || 420;
+      const height = heroModel.clientHeight || 420;
+      renderer.setSize(size, height, false);
+      camera.aspect = size / height;
+      camera.updateProjectionMatrix();
+    };
+
+    resizeRenderer();
+    window.addEventListener('resize', resizeRenderer);
+
+    let frame = 0;
+    function animate() {
+      frame += 0.016;
+      core.rotation.x += 0.006;
+      core.rotation.y += 0.008;
+      wire.rotation.z += 0.01;
+      ring.rotation.z -= 0.008;
+      orbitDots.rotation.y += 0.01;
+      orbitDots.rotation.x = Math.sin(frame * 1.2) * 0.6;
+      group.position.y = Math.sin(frame * 1.4) * 0.18;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
   document.querySelectorAll('.card, .hero-copy').forEach(el=>io.observe(el));
 
   // Close nav on outside click / ESC and manage aria-expanded
